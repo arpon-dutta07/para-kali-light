@@ -1,22 +1,37 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FaHome, FaExclamationTriangle } from 'react-icons/fa';
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
-      </div>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-md"
+      >
+        <div className="mb-8">
+          <FaExclamationTriangle className="text-6xl text-kali-red mx-auto mb-4" />
+          <h1 className="font-heading text-6xl font-bold text-primary mb-4">404</h1>
+          <h2 className="font-heading text-2xl font-bold text-primary mb-4">Page Not Found</h2>
+          <p className="font-body text-muted-foreground mb-8">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+        </div>
+
+        <Link to="/">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-kali-red text-white font-heading font-semibold rounded-full flex items-center space-x-2 mx-auto hover:bg-kali-red-dark smooth-transition shadow-lg"
+          >
+            <FaHome />
+            <span>Return to Home</span>
+          </motion.button>
+        </Link>
+      </motion.div>
     </div>
   );
 };

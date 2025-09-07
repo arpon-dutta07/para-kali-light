@@ -2,41 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Kali Puja Pandal Design System - All colors, gradients, fonts, etc defined here. 
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Kali Puja Color Palette */
+    --background: 42 9% 96.5%; /* Off-White */
+    --foreground: 240 4% 4%; /* Deep Black */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 4% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 4% 4%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 240 4% 4%; /* Deep Black */
+    --primary-foreground: 42 9% 96.5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 43 74% 42%; /* Antique Gold */
+    --secondary-foreground: 240 4% 4%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 9% 68%; /* Warm Gray */
+    --muted-foreground: 240 4% 4%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 356 74% 45%; /* Kali Red */
+    --accent-foreground: 42 9% 96.5%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 42 9% 96.5%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 9% 68%;
+    --input: 210 9% 68%;
+    --ring: 356 74% 45%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Kali Puja Colors */
+    --kali-red: 356 74% 45%;
+    --kali-red-dark: 356 74% 35%;
+    --kali-red-light: 356 74% 55%;
+    --antique-gold: 43 74% 42%;
+    --antique-gold-light: 43 74% 52%;
+    --deep-black: 240 4% 4%;
+    --warm-gray: 210 9% 68%;
+    --off-white: 42 9% 96.5%;
+
+    /* Gradients */
+    --gradient-kali: linear-gradient(135deg, hsl(var(--kali-red)), hsl(var(--kali-red-dark)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--antique-gold)), hsl(var(--antique-gold-light)));
+    --gradient-devotional: linear-gradient(135deg, hsl(var(--deep-black)), hsl(var(--kali-red-dark)));
+    --gradient-hero: linear-gradient(180deg, rgba(11, 11, 13, 0.8), rgba(200, 29, 37, 0.4));
+
+    /* Shadows & Effects */
+    --shadow-kali: 0 10px 30px -10px hsl(var(--kali-red) / 0.3);
+    --shadow-gold: 0 10px 30px -10px hsl(var(--antique-gold) / 0.3);
+    --glow-kali: 0 0 20px hsl(var(--kali-red) / 0.5);
+    --glow-gold: 0 0 20px hsl(var(--antique-gold) / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +87,43 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode for evening celebrations */
+    --background: 240 4% 4%;
+    --foreground: 42 9% 96.5%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 4% 8%;
+    --card-foreground: 42 9% 96.5%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 4% 8%;
+    --popover-foreground: 42 9% 96.5%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 42 9% 96.5%;
+    --primary-foreground: 240 4% 4%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 43 74% 42%;
+    --secondary-foreground: 240 4% 4%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 9% 25%;
+    --muted-foreground: 210 9% 68%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 356 74% 55%;
+    --accent-foreground: 42 9% 96.5%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 42 9% 96.5%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 210 9% 25%;
+    --input: 210 9% 25%;
+    --ring: 356 74% 55%;
+
+    --sidebar-background: 240 4% 4%;
+    --sidebar-foreground: 42 9% 96.5%;
+    --sidebar-primary: 356 74% 55%;
+    --sidebar-primary-foreground: 240 4% 4%;
+    --sidebar-accent: 240 4% 8%;
+    --sidebar-accent-foreground: 42 9% 96.5%;
+    --sidebar-border: 210 9% 25%;
+    --sidebar-ring: 356 74% 55%;
   }
 }
 
@@ -100,6 +133,91 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Kali Puja Custom Components */
+  .devotional-glow {
+    @apply shadow-lg;
+    box-shadow: var(--glow-kali);
+  }
+
+  .gold-glow {
+    @apply shadow-lg;
+    box-shadow: var(--glow-gold);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .kali-gradient {
+    background: var(--gradient-kali);
+  }
+
+  .gold-gradient {
+    background: var(--gradient-gold);
+  }
+
+  .devotional-gradient {
+    background: var(--gradient-devotional);
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+
+  .diya-flicker {
+    animation: flicker 2s infinite alternate;
+  }
+
+  .floating-diya {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-kali-red {
+    color: hsl(var(--kali-red));
+  }
+  
+  .text-antique-gold {
+    color: hsl(var(--antique-gold));
+  }
+  
+  .bg-kali-red {
+    background-color: hsl(var(--kali-red));
+  }
+  
+  .bg-antique-gold {
+    background-color: hsl(var(--antique-gold));
+  }
+
+  .border-kali-red {
+    border-color: hsl(var(--kali-red));
+  }
+  
+  .border-antique-gold {
+    border-color: hsl(var(--antique-gold));
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
