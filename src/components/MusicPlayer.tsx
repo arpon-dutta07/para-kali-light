@@ -47,7 +47,7 @@ export const MusicPlayer: React.FC = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="fixed right-6 top-1/2 transform -translate-y-1/2 z-30"
+        className="fixed right-6 top-6 z-30"
       >
         <div className="relative">
           {/* Glow Effect */}
@@ -66,7 +66,16 @@ export const MusicPlayer: React.FC = () => {
             } ${!isLoaded ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             {isLoaded ? (
-              isPlaying ? <FaPause className="text-xl" /> : <FaPlay className="text-xl ml-1" />
+              isPlaying ? (
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 0.6, repeat: Infinity }}
+                >
+                  <FaPause className="text-xl" />
+                </motion.div>
+              ) : (
+                <FaPlay className="text-xl ml-1" />
+              )
             ) : (
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
             )}

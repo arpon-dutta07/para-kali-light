@@ -58,9 +58,7 @@ export const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
-  const filteredImages = galleryImages.filter(
-    image => selectedCategory === 'All' || image.category === selectedCategory
-  );
+  const filteredImages = galleryImages;
 
   const lightboxSlides = filteredImages.map(image => ({
     src: image.src,
@@ -112,37 +110,13 @@ export const Gallery: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Filter Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
-          >
-            <FaFilter className="text-muted-foreground text-xl mr-2 mt-2" />
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-body font-medium smooth-transition ${
-                  selectedCategory === category
-                    ? 'bg-kali-red text-white shadow-lg'
-                    : 'bg-card text-muted-foreground border border-border hover:bg-antique-gold hover:text-white'
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </motion.div>
 
           {/* Gallery Grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            key={selectedCategory} // Re-animate when category changes
+            
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             <AnimatePresence mode="wait">

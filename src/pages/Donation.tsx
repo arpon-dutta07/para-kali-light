@@ -4,6 +4,10 @@ import { Helmet } from 'react-helmet-async';
 import { FaCopy, FaQrcode, FaHeart, FaUsers, FaLightbulb, FaHandsHelping } from 'react-icons/fa';
 import { useToast } from '@/hooks/use-toast';
 import upiQRImage from '@/assets/upi-qr-donation.jpg';
+import sponsor1 from '@/assets/sponsor-1.png';
+import sponsor2 from '@/assets/sponsor-2.png';
+import sponsor3 from '@/assets/sponsor-3.png';
+import sponsor4 from '@/assets/sponsor-4.png';
 
 const fundCategories = [
   {
@@ -30,8 +34,12 @@ const fundCategories = [
 ];
 
 const sponsors = [
-  'Sponsor Name 1', 'Sponsor Name 2', 'Sponsor Name 3', 
-  'Sponsor Name 4', 'Sponsor Name 5', 'Sponsor Name 6'
+  { name: 'Bengal Sweets', logo: sponsor1 },
+  { name: 'Golden Decorators', logo: sponsor2 },
+  { name: 'Kali Textiles', logo: sponsor3 },
+  { name: 'Pandal Arts', logo: sponsor4 },
+  { name: 'Bengal Sweets', logo: sponsor1 },
+  { name: 'Golden Decorators', logo: sponsor2 }
 ];
 
 export const Donation: React.FC = () => {
@@ -243,9 +251,14 @@ export const Donation: React.FC = () => {
                 {[...sponsors, ...sponsors].map((sponsor, index) => (
                   <div
                     key={index}
-                    className="px-8 py-4 bg-muted/20 rounded-lg border border-border flex-shrink-0"
+                    className="flex items-center space-x-4 px-6 py-4 bg-white rounded-lg border border-border flex-shrink-0 shadow-sm"
                   >
-                    <span className="font-body font-medium text-muted-foreground">{sponsor}</span>
+                    <img 
+                      src={sponsor.logo} 
+                      alt={`${sponsor.name} logo`}
+                      className="w-12 h-12 object-contain"
+                    />
+                    <span className="font-body font-medium text-gray-700">{sponsor.name}</span>
                   </div>
                 ))}
               </motion.div>
@@ -255,12 +268,12 @@ export const Donation: React.FC = () => {
           {/* Become a Sponsor CTA */}
           <motion.div
             variants={itemVariants}
-            className="text-center p-12 bg-devotional-gradient text-white rounded-3xl"
+            className="text-center p-12 bg-kali-gradient text-white rounded-3xl shadow-2xl"
           >
             <h2 className="font-heading text-3xl font-bold mb-4">
               Become a Sponsor
             </h2>
-            <p className="font-body text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="font-body text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
               Join our family of sponsors and get recognition in all our promotional materials, 
               banners, and social media posts during the festival.
             </p>

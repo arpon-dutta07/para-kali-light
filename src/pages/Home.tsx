@@ -195,6 +195,113 @@ export const Home: React.FC = () => {
             </motion.div>
           </div>
         </motion.div>
+
+        {/* About Section */}
+        <motion.section 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10 py-20 px-4 lg:px-8 bg-background/95 backdrop-blur-sm"
+        >
+          <div className="max-w-6xl mx-auto text-center">
+            <motion.h2 
+              variants={itemVariants}
+              className="font-heading text-3xl md:text-5xl font-bold text-primary mb-6"
+            >
+              About Our <span className="text-kali-red">Sacred Journey</span>
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="font-body text-lg text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+            >
+              For over a decade, we have been celebrating the divine presence of Maa Kali, 
+              bringing our community together in a spirit of devotion, art, and unity.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <Link to="/about">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-kali-gradient text-white font-heading font-semibold text-lg rounded-full shadow-lg hover:shadow-xl smooth-transition"
+                >
+                  Learn More About Us
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Gallery Preview Section */}
+        <motion.section 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10 py-20 px-4 lg:px-8 bg-muted/20"
+        >
+          <div className="max-w-6xl mx-auto text-center">
+            <motion.h2 
+              variants={itemVariants}
+              className="font-heading text-3xl md:text-5xl font-bold text-primary mb-6"
+            >
+              Sacred <span className="text-antique-gold">Moments</span>
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="font-body text-lg text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
+            >
+              Witness the divine beauty and joyous celebrations captured through the years.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <Link to="/gallery">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-antique-gold text-devotional-black font-heading font-semibold text-lg rounded-full shadow-lg hover:shadow-xl smooth-transition"
+                >
+                  View Full Gallery
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* Donation Call-to-Action */}
+        <motion.section 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10 py-20 px-4 lg:px-8 bg-kali-gradient text-white"
+        >
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h2 
+              variants={itemVariants}
+              className="font-heading text-3xl md:text-5xl font-bold mb-6"
+            >
+              Support Our Sacred <span className="text-antique-gold">Celebration</span>
+            </motion.h2>
+            <motion.p 
+              variants={itemVariants}
+              className="font-body text-xl mb-12 leading-relaxed opacity-90"
+            >
+              Your generous contribution helps us create a beautiful and meaningful 
+              Kali Puja experience for thousands of devotees.
+            </motion.p>
+            <motion.div variants={itemVariants}>
+              <Link to="/donation">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(212, 175, 55, 0.3)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-antique-gold text-devotional-black font-heading font-semibold text-lg rounded-full shadow-lg hover:shadow-xl smooth-transition"
+                >
+                  Donate Now
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.section>
       </div>
     </>
   );

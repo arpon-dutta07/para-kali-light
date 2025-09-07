@@ -131,14 +131,15 @@ export const About: React.FC = () => {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-                    className="text-center p-8 bg-card rounded-2xl border border-border shadow-lg"
+                    whileHover={{ y: -8, boxShadow: '0 25px 50px rgba(200, 29, 37, 0.15)' }}
+                    className="text-center p-8 bg-gradient-to-br from-card to-card/80 rounded-3xl border border-border shadow-xl backdrop-blur-sm"
                   >
-                    <div className="w-16 h-16 mx-auto mb-6 bg-kali-gradient rounded-full flex items-center justify-center">
-                      <Icon className="text-2xl text-white" />
+                    <div className="w-20 h-20 mx-auto mb-6 bg-kali-gradient rounded-full flex items-center justify-center shadow-lg">
+                      <Icon className="text-3xl text-white" />
                     </div>
                     <h3 className="font-heading text-xl font-bold text-primary mb-4">{feature.title}</h3>
                     <p className="font-body text-muted-foreground leading-relaxed">{feature.description}</p>
+                    <div className="mt-6 w-12 h-1 bg-antique-gold rounded-full mx-auto"></div>
                   </motion.div>
                 );
               })}
@@ -172,7 +173,7 @@ export const About: React.FC = () => {
           {/* Quote Section */}
           <motion.div 
             variants={itemVariants}
-            className="bg-kali-gradient text-white p-12 rounded-2xl text-center relative overflow-hidden"
+            className="bg-kali-gradient text-white p-12 rounded-2xl text-center relative overflow-hidden shadow-2xl"
           >
             <div className="absolute top-6 left-6 opacity-20">
               <FaQuoteLeft className="text-6xl" />

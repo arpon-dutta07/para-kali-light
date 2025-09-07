@@ -113,21 +113,21 @@ export const Contact: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Information */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="lg:col-span-2">
               <h2 className="font-heading text-3xl font-bold text-primary mb-8">
                 Contact Information
               </h2>
 
-              <div className="space-y-6 mb-12">
+              <div className="grid md:grid-cols-2 gap-6 mb-12">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
                     <motion.div
                       key={index}
                       variants={itemVariants}
-                      whileHover={{ x: 5 }}
+                      whileHover={{ y: -3 }}
                       className="flex items-start space-x-4 p-6 bg-card rounded-2xl border border-border hover:shadow-lg smooth-transition"
                     >
                       <div className="w-12 h-12 bg-kali-gradient rounded-full flex items-center justify-center flex-shrink-0">
@@ -162,7 +162,7 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Social Links */}
-              <div>
+              <div className="mb-8">
                 <h3 className="font-heading text-xl font-bold text-primary mb-4">
                   Follow Us
                 </h3>
@@ -190,7 +190,7 @@ export const Contact: React.FC = () => {
               {/* Map Placeholder */}
               <motion.div
                 variants={itemVariants}
-                className="mt-12 bg-muted/20 rounded-2xl p-8 text-center border border-border"
+                className="bg-muted/20 rounded-2xl p-8 text-center border border-border"
               >
                 <FaMapMarkerAlt className="text-4xl text-kali-red mx-auto mb-4" />
                 <h3 className="font-heading text-xl font-bold text-primary mb-2">
@@ -214,7 +214,7 @@ export const Contact: React.FC = () => {
 
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
-              <div className="bg-card p-8 rounded-3xl border border-border shadow-xl">
+              <div className="bg-card p-8 rounded-3xl border border-border shadow-xl h-fit">
                 <h2 className="font-heading text-3xl font-bold text-primary mb-6">
                   Send us a Message
                 </h2>
