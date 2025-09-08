@@ -135,7 +135,7 @@ export const About: React.FC = () => {
                     className="text-center p-8 bg-gradient-to-br from-card to-card/80 rounded-3xl border border-border shadow-xl backdrop-blur-sm"
                   >
                     <div className="w-20 h-20 mx-auto mb-6 bg-kali-gradient rounded-full flex items-center justify-center shadow-lg">
-                      <Icon className="text-3xl text-white" />
+                      <Icon size={32} className="text-white" />
                     </div>
                     <h3 className="font-heading text-xl font-bold text-primary mb-4">{feature.title}</h3>
                     <p className="font-body text-muted-foreground leading-relaxed">{feature.description}</p>
@@ -174,12 +174,13 @@ export const About: React.FC = () => {
           <motion.div 
             variants={itemVariants}
             className="bg-kali-gradient text-white p-12 rounded-2xl text-center relative overflow-hidden shadow-2xl"
+            style={{ background: 'linear-gradient(135deg, #c81d25, #8c1515)' }}
           >
             <div className="absolute top-6 left-6 opacity-20">
-              <Quote className="text-6xl" />
+              <Quote size={64} />
             </div>
             <div className="relative z-10">
-              <p className="font-body text-xl md:text-2xl leading-relaxed mb-6 italic text-white">
+              <p className="font-body text-xl md:text-2xl leading-relaxed mb-6 italic text-white font-medium">
                 "Kali Puja is not just a festival for us—it's a celebration of the divine feminine power 
                 that protects and nurtures our community. Every year, we strive to create an experience 
                 that honors our traditions while bringing people together in love and devotion."
