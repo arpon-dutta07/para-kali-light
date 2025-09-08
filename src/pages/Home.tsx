@@ -222,9 +222,9 @@ export const Home: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-kali-gradient text-white font-heading font-semibold text-lg rounded-full shadow-lg hover:shadow-xl smooth-transition"
+                  className="px-8 py-4 bg-antique-gold text-black font-heading font-semibold text-lg rounded-full shadow-lg hover:shadow-xl smooth-transition"
                 >
-                  Learn More About Us
+                  About Us
                 </motion.button>
               </Link>
             </motion.div>
