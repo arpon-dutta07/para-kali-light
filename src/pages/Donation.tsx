@@ -166,69 +166,94 @@ export const Donation: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Fund Allocation Section */}
-            <motion.div variants={itemVariants}>
-              <div className="mb-8">
-                <h2 className="font-heading text-3xl font-bold text-primary mb-4">
-                  How Your Donation Helps
-                </h2>
-                <p className="font-body text-muted-foreground mb-6">
-                  Every rupee is carefully allocated to create the best experience for our devotees and community.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {fundCategories.map((category, index) => {
-                  const Icon = category.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      variants={itemVariants}
-                      className="bg-card p-6 rounded-2xl border border-border hover:shadow-lg smooth-transition"
-                    >
-                      <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-kali-gradient rounded-full flex items-center justify-center flex-shrink-0">
-                          <Icon className="text-white text-xl" />
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-heading text-lg font-bold text-primary">
-                              {category.title}
-                            </h3>
-                            <span className="font-heading font-bold text-antique-gold">
-                              {category.percentage}%
-                            </span>
-                          </div>
-                          <p className="font-body text-muted-foreground mb-3">
-                            {category.description}
-                          </p>
-                          <div className="bg-muted/30 rounded-full h-2 mb-2">
-                            <div
-                              className="bg-kali-gradient h-2 rounded-full smooth-transition"
-                              style={{ width: `${category.percentage}%` }}
-                            ></div>
-                          </div>
-                          <p className="font-body text-sm text-muted-foreground">
-                            Target: <span className="font-bold text-kali-red">{category.amount}</span>
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Total Goal */}
+            {/* Goal Section */}
+            <motion.div variants={itemVariants} className="flex items-center">
               <motion.div
                 variants={itemVariants}
-                className="mt-8 p-6 bg-kali-gradient text-white rounded-2xl text-center"
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="w-full p-8 bg-gradient-to-br from-kali-red via-antique-gold to-kali-red text-white rounded-3xl text-center shadow-2xl border-2 border-antique-gold/30 relative overflow-hidden"
               >
-                <FaHeart className="text-3xl mx-auto mb-3" />
-                <h3 className="font-heading text-2xl font-bold mb-2">Total Goal</h3>
-                <p className="font-heading text-4xl font-bold">₹5,00,000</p>
-                <p className="font-body text-white/80 mt-2">
-                  Together, we can make this celebration unforgettable
-                </p>
+                {/* Decorative background elements */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-4 left-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
+                  <div className="absolute bottom-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+                </div>
+                
+                <div className="relative z-10">
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <FaHeart className="text-5xl mx-auto mb-4 drop-shadow-lg" />
+                  </motion.div>
+                  
+                  <motion.h3 
+                    className="font-heading text-3xl font-bold mb-4 drop-shadow-md"
+                    animate={{ 
+                      textShadow: [
+                        "0 0 10px rgba(255,255,255,0.3)",
+                        "0 0 20px rgba(255,255,255,0.5)",
+                        "0 0 10px rgba(255,255,255,0.3)"
+                      ]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    Total Goal
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="font-heading text-6xl font-extrabold mb-4 drop-shadow-lg"
+                    whileHover={{ 
+                      scale: 1.1,
+                      textShadow: "0 0 30px rgba(255,255,255,0.8)"
+                    }}
+                  >
+                    ₹50,000
+                  </motion.p>
+                  
+                  <motion.div
+                    animate={{ 
+                      opacity: [0.8, 1, 0.8]
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <p className="font-body text-xl leading-relaxed drop-shadow-sm">
+                      Together, we can make this celebration unforgettable
+                    </p>
+                  </motion.div>
+                  
+                  {/* Progress indicator */}
+                  <motion.div 
+                    className="mt-6 bg-white/20 rounded-full h-3 overflow-hidden"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    <motion.div
+                      className="bg-white h-full rounded-full shadow-lg"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "15%" }}
+                      transition={{ duration: 2, delay: 1 }}
+                    ></motion.div>
+                  </motion.div>
+                  <p className="text-white/80 text-sm mt-2">15% raised so far</p>
+                </div>
               </motion.div>
             </motion.div>
           </div>
