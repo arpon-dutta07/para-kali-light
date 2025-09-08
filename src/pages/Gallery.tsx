@@ -12,37 +12,43 @@ const galleryImages = [
     id: 1,
     src: '/lovable-uploads/a6d1de9d-f618-40f4-8043-3ca129e9450a.png',
     alt: 'Beautiful Kali pandal with golden illumination and intricate decorations',
-    title: 'Divine Golden Pandal'
+    title: 'Divine Golden Pandal',
+    description: 'Our main pandal featuring intricate golden decorations that symbolize the divine light of Maa Kali. The structure combines traditional Bengali architecture with modern lighting techniques to create a mesmerizing spiritual atmosphere.'
   },
   {
     id: 2,
     src: '/lovable-uploads/4ff721ca-b313-4132-a001-b65c84d1b0f1.png',
     alt: 'Night view of the pandal with colorful lighting and devotees',
-    title: 'Evening Celebration'
+    title: 'Evening Celebration',
+    description: 'The pandal comes alive at night with vibrant lighting that represents the cosmic energy of Maa Kali. Devotees gather in the evening for aarti and cultural performances, creating a community atmosphere of devotion and celebration.'
   },
   {
     id: 3,
     src: '/lovable-uploads/63fb5fa1-152d-41bb-b4bf-97a5fbd70f68.png',
     alt: 'Magnificent pandal with traditional architecture and lighting',
-    title: 'Traditional Grandeur'
+    title: 'Traditional Grandeur',
+    description: 'This pandal design draws inspiration from ancient Bengali temples, featuring traditional architectural elements like ornate pillars and arches. The red and gold color scheme represents the power and divinity of Maa Kali.'
   },
   {
     id: 4,
     src: '/lovable-uploads/e34d37c4-05d6-48f5-9dab-615dd0136b7d.png',
     alt: 'Spectacular pandal with Kali idol in divine backdrop',
-    title: 'Divine Presence'
+    title: 'Divine Presence',
+    description: 'The central idol of Maa Kali is placed against a backdrop that depicts her cosmic dance. The lighting creates a mystical atmosphere that helps devotees connect with the divine energy of the goddess during prayer and meditation.'
   },
   {
     id: 5,
     src: '/lovable-uploads/a734c06c-6a3a-4590-8179-478e7ea3eaca.png',
     alt: 'Sacred Kali idol in beautiful red backdrop with traditional decorations',
-    title: 'Sacred Idol'
+    title: 'Sacred Idol',
+    description: 'Our main Kali idol is crafted by master artisans from Kumartuli, following traditional techniques passed down through generations. The fierce yet compassionate expression captures the essence of Maa Kali as the destroyer of evil and protector of devotees.'
   },
   {
     id: 6,
     src: '/lovable-uploads/b63d82b6-d75c-44e0-9670-4bc3e6ce5d84.png',
     alt: 'Artistic pandal design with red theme and golden lighting',
-    title: 'Artistic Excellence'
+    title: 'Artistic Excellence',
+    description: 'This award-winning pandal design combines contemporary artistic elements with traditional symbolism. The red theme represents the energy of Shakti, while the intricate patterns tell stories from ancient scriptures related to Maa Kali.'
   }
 ];
 
@@ -96,7 +102,8 @@ export const Gallery: React.FC = () => {
   const lightboxSlides = filteredImages.map(image => ({
     src: image.src,
     alt: image.alt,
-    title: image.title
+    title: image.title,
+    description: image.description
   }));
 
   const containerVariants = {
@@ -290,9 +297,22 @@ export const Gallery: React.FC = () => {
               </button>
             ),
             buttonClose: () => (
-              <button className="text-white hover:text-kali-red text-2xl p-2">
+              <button className="text-white hover:text-kali-red text-2xl p-2 absolute top-4 right-4 z-50 bg-black/50 rounded-full w-10 h-10 flex items-center justify-center">
                 <FaTimes />
               </button>
+            ),
+            iconClose: () => null,
+            caption: ({ currentSlide }) => (
+              <div className="bg-black/80 p-4 rounded-t-lg max-w-3xl mx-auto">
+                <h3 className="text-white text-xl font-heading font-bold mb-2">{currentSlide.title}</h3>
+                <p className="text-white/90 text-sm font-body">{currentSlide.description}</p>
+                <button 
+                  onClick={() => setLightboxIndex(-1)}
+                  className="mt-3 px-4 py-2 bg-kali-red text-white rounded-md font-body text-sm hover:bg-kali-red-dark transition-colors"
+                >
+                  Close
+                </button>
+              </div>
             ),
           }}
         />
