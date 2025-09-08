@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { FaHeart, FaUsers, FaStar, FaQuoteLeft } from 'react-icons/fa';
+import { Heart, Users, Star, Quote } from 'lucide-react';
 import galleryImage from '@/assets/kali-gallery-1.jpg';
 
 const timelineEvents = [
@@ -15,17 +15,17 @@ const timelineEvents = [
 
 const features = [
   {
-    icon: FaHeart,
+    icon: Heart,
     title: 'Deep Devotion',
     description: 'Our celebration is rooted in genuine devotion to Maa Kali, fostering spiritual connection and inner peace.'
   },
   {
-    icon: FaUsers,
+    icon: Users,
     title: 'Community Unity',
     description: 'Bringing together people from all walks of life to celebrate our shared cultural heritage and values.'
   },
   {
-    icon: FaStar,
+    icon: Star,
     title: 'Artistic Excellence',
     description: 'Showcasing the finest craftsmanship in pandal decoration and idol creation by master artisans.'
   },
@@ -107,7 +107,7 @@ export const About: React.FC = () => {
               className="relative rounded-2xl overflow-hidden shadow-2xl"
             >
               <img 
-                src={galleryImage} 
+                src="/lovable-uploads/4ff721ca-b313-4132-a001-b65c84d1b0f1.png" 
                 alt="Kali Puja celebration at our pandal"
                 className="w-full h-96 object-cover"
               />
@@ -176,17 +176,17 @@ export const About: React.FC = () => {
             className="bg-kali-gradient text-white p-12 rounded-2xl text-center relative overflow-hidden shadow-2xl"
           >
             <div className="absolute top-6 left-6 opacity-20">
-              <FaQuoteLeft className="text-6xl" />
+              <Quote className="text-6xl" />
             </div>
             <div className="relative z-10">
-              <p className="font-body text-xl md:text-2xl leading-relaxed mb-6 italic">
+              <p className="font-body text-xl md:text-2xl leading-relaxed mb-6 italic text-white">
                 "Kali Puja is not just a festival for us—it's a celebration of the divine feminine power 
                 that protects and nurtures our community. Every year, we strive to create an experience 
                 that honors our traditions while bringing people together in love and devotion."
               </p>
-              <div className="font-heading text-lg">
+              <div className="font-heading text-lg text-antique-gold">
                 <strong>Rajesh Kumar Sharma</strong><br />
-                <span className="opacity-80">Committee President</span>
+                <span className="opacity-90">Committee President</span>
               </div>
             </div>
           </motion.div>

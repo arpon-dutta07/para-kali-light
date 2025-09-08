@@ -6,49 +6,82 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import galleryImage1 from '@/assets/kali-gallery-1.jpg';
 
-// Mock gallery data - in real app, this would come from a backend
+// Gallery images from uploads
 const galleryImages = [
   {
     id: 1,
-    src: galleryImage1,
-    alt: 'Beautiful Kali idol with traditional decorations',
-    category: 'Idol',
-    title: 'Maa Kali in Divine Glory'
+    src: '/lovable-uploads/a6d1de9d-f618-40f4-8043-3ca129e9450a.png',
+    alt: 'Beautiful Kali pandal with golden illumination and intricate decorations',
+    title: 'Divine Golden Pandal'
   },
   {
     id: 2,
-    src: galleryImage1,
-    alt: 'Pandal entrance with stunning lighting',
-    category: 'Pandal',
-    title: 'Pandal Entrance'
+    src: '/lovable-uploads/4ff721ca-b313-4132-a001-b65c84d1b0f1.png',
+    alt: 'Night view of the pandal with colorful lighting and devotees',
+    title: 'Evening Celebration'
   },
   {
     id: 3,
-    src: galleryImage1,
-    alt: 'Cultural dance performance during celebration',
-    category: 'Cultural Events',
-    title: 'Traditional Dance'
+    src: '/lovable-uploads/63fb5fa1-152d-41bb-b4bf-97a5fbd70f68.png',
+    alt: 'Magnificent pandal with traditional architecture and lighting',
+    title: 'Traditional Grandeur'
   },
   {
     id: 4,
-    src: galleryImage1,
-    alt: 'Volunteers serving food to devotees',
-    category: 'Volunteers',
-    title: 'Community Service'
+    src: '/lovable-uploads/e34d37c4-05d6-48f5-9dab-615dd0136b7d.png',
+    alt: 'Spectacular pandal with Kali idol in divine backdrop',
+    title: 'Divine Presence'
   },
   {
     id: 5,
-    src: galleryImage1,
-    alt: 'Night lighting creating magical atmosphere',
-    category: 'Lighting',
-    title: 'Evening Illumination'
+    src: '/lovable-uploads/a734c06c-6a3a-4590-8179-478e7ea3eaca.png',
+    alt: 'Sacred Kali idol in beautiful red backdrop with traditional decorations',
+    title: 'Sacred Idol'
   },
   {
     id: 6,
-    src: galleryImage1,
-    alt: 'Devotees offering prayers',
-    category: 'Idol',
-    title: 'Prayer Ceremony'
+    src: '/lovable-uploads/b63d82b6-d75c-44e0-9670-4bc3e6ce5d84.png',
+    alt: 'Artistic pandal design with red theme and golden lighting',
+    title: 'Artistic Excellence'
+  }
+];
+
+// Volunteers data
+const volunteers = [
+  {
+    id: 1,
+    name: 'Rajesh Kumar',
+    role: 'General Secretary',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+    experience: '10 years'
+  },
+  {
+    id: 2,
+    name: 'Priya Sharma',
+    role: 'Cultural Coordinator',
+    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face',
+    experience: '7 years'
+  },
+  {
+    id: 3,
+    name: 'Amit Das',
+    role: 'Decoration Head',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+    experience: '8 years'
+  },
+  {
+    id: 4,
+    name: 'Sunita Roy',
+    role: 'Food & Prasad Coordinator',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
+    experience: '6 years'
+  },
+  {
+    id: 5,
+    name: 'Kamal Sen',
+    role: 'Security & Management',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face',
+    experience: '9 years'
   }
 ];
 
@@ -116,8 +149,7 @@ export const Gallery: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           >
             <AnimatePresence mode="wait">
               {filteredImages.map((image, index) => (
@@ -130,7 +162,7 @@ export const Gallery: React.FC = () => {
                   whileHover={{ y: -5 }}
                 >
                   {/* Image */}
-                  <div className="relative aspect-square overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -144,22 +176,59 @@ export const Gallery: React.FC = () => {
                         <h3 className="font-heading text-white font-bold text-lg mb-1">
                           {image.title}
                         </h3>
-                        <p className="font-body text-white/80 text-sm">
-                          {image.category}
-                        </p>
                       </div>
-                    </div>
-
-                    {/* Category Badge */}
-                    <div className="absolute top-3 right-3">
-                      <span className="px-3 py-1 bg-kali-red text-white text-xs font-body font-medium rounded-full">
-                        {image.category}
-                      </span>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
+          </motion.div>
+
+          {/* Volunteers Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <motion.h2 
+              variants={itemVariants}
+              className="font-heading text-3xl md:text-4xl font-bold text-primary text-center mb-8"
+            >
+              Our Dedicated <span className="text-kali-red">Volunteers</span>
+            </motion.h2>
+            
+            <motion.div 
+              variants={containerVariants}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+            >
+              {volunteers.map((volunteer) => (
+                <motion.div
+                  key={volunteer.id}
+                  variants={itemVariants}
+                  className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl smooth-transition border border-border"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="relative mx-auto mb-4 w-24 h-24 rounded-full overflow-hidden ring-4 ring-antique-gold/20">
+                    <img
+                      src={volunteer.image}
+                      alt={volunteer.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-primary mb-1">
+                    {volunteer.name}
+                  </h3>
+                  <p className="font-body text-kali-red font-medium text-sm mb-2">
+                    {volunteer.role}
+                  </p>
+                  <p className="font-body text-muted-foreground text-xs">
+                    Experience: {volunteer.experience}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Empty State */}

@@ -13,8 +13,8 @@ export const Home: React.FC = () => {
   });
 
   useEffect(() => {
-    // Set target date for Kali Puja 2025 (November 1, 2025)
-    const targetDate = new Date('2025-11-01T18:00:00').getTime();
+    // Set target date for Kali Puja 2025 (October 20, 2025)
+    const targetDate = new Date('2025-10-20T18:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
