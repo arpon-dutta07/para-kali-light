@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { FaImages, FaDonate, FaCalendarAlt } from 'react-icons/fa';
-import heroImage from '@/assets/hero-kali-puja.jpg';
 
 export const Home: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -69,7 +68,7 @@ export const Home: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `url(/lovable-uploads/05008b2c-6435-4d0f-bc7b-48cf41c1ea8b.png)`,
             backgroundAttachment: 'fixed'
           }}
         >
